@@ -86,13 +86,13 @@ function renderHomePage() {
         });
 
         const profitLoss = document.createElement('p');
-        profitLoss.textContent = ''; // Initialize with an empty value
+        profitLoss.textContent = ''; 
 
         card.appendChild(name);
         card.appendChild(price);
         card.appendChild(purchaseBtn);
         card.appendChild(wishlistBtn);
-        card.appendChild(profitLoss); // Add profit/loss element to the card
+        card.appendChild(profitLoss); 
         homePage.appendChild(card);
     });
 }
@@ -140,12 +140,12 @@ function renderWishlistPage() {
             });
 
             const profitLoss = document.createElement('p');
-            profitLoss.textContent = ''; // Initialize with an empty value
+            profitLoss.textContent = ''; 
 
             card.appendChild(name);
             card.appendChild(removeBtn);
             card.appendChild(purchaseBtn);
-            card.appendChild(profitLoss); // Add profit/loss element to the card
+            card.appendChild(profitLoss);
             wishlistPage.appendChild(card);
         });
     }
@@ -177,8 +177,8 @@ function renderHoldingsPage() {
                 sellBtn.addEventListener('click', () => {
                     const amountToSell = parseInt(prompt(`How many ${token} tokens do you want to sell?`));
                     if (!isNaN(amountToSell) && amountToSell > 0 && holdings[token] >= amountToSell) {
-                        const isProfit = Math.random() >= 0.5; // Generate whether it's a profit or loss
-                        const percentage = Math.floor(Math.random() * 10) + 1; // Generate a percentage from 1 to 10
+                        const isProfit = Math.random() >= 0.5; 
+                        const percentage = Math.floor(Math.random() * 10) + 1; 
                         let profitLossAmount = 0;
 
                         if (isProfit) {
@@ -189,7 +189,7 @@ function renderHoldingsPage() {
                             balance -= profitLossAmount;
                         }
 
-                        balance += amountToSell * cryptoData[token]; // Add back the sold amount to the original balance
+                        balance += amountToSell * cryptoData[token];
 
                         alert(`You have successfully sold ${amountToSell} ${token} tokens. ${isProfit ? 'Profit' : 'Loss'}: $${profitLossAmount}.`);
                         holdings[token] -= amountToSell;
@@ -201,16 +201,16 @@ function renderHoldingsPage() {
                 });
 
                 const profitLoss = document.createElement('p');
-                profitLoss.textContent = ''; // Initialize with an empty value
+                profitLoss.textContent = ''; 
 
                 card.appendChild(name);
                 card.appendChild(amount);
                 card.appendChild(currentPrice);
-                card.appendChild(profitLoss); // Add profit/loss element to the card
+                card.appendChild(profitLoss); 
                 card.appendChild(sellBtn);
                 holdingsPage.appendChild(card);
             } else {
-                delete holdings[token]; // Remove the token if the amount is 0
+                delete holdings[token]; 
             }
         });
     }
